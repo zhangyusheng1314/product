@@ -47,7 +47,7 @@ public class ProductInfoServiceImpl implements ProductInfoService {
     public void decreaseStock(List<CartDTO> cartDTOS) {
         //先执行完所有的订单商品的库存的减才发送消息
         List<ProductInfo> productInfos = decreaseStockProcess(cartDTOS);
-        //发送消息到product端
+        //发送消息到order端
         amqpTemplate.convertAndSend("productInfo",JsonUtil.toJson(productInfos));
     }
 

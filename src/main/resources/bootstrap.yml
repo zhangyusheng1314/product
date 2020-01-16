@@ -1,6 +1,7 @@
 spring:
   application:
     name: product
+  #被config发现
   cloud:
     config:
       discovery:
@@ -23,6 +24,11 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:8001/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 #负载均衡 随机方式
 #product:
 #  ribbon:
