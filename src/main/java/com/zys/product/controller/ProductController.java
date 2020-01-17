@@ -55,7 +55,8 @@ public class ProductController {
         return ResultVOUtils.success(productVOS);
     }
     @RequestMapping("/getListById")
-    public List<ProductInfo> getListById(@RequestBody List<String> productId){
+    public List<ProductInfo> getListById(@RequestBody List<String> productId) throws InterruptedException {
+        Thread.sleep(2000);
         List<ProductInfo> productInfos = productInfoService.selectById(productId);
         return productInfos;
     }
